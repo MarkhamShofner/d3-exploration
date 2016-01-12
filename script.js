@@ -15,13 +15,15 @@
 
 // "Data Source","World Development Indicators",
 // "Last Updated Date","2015-12-22",
-d3.csv("./raw_data/test_Aruba.csv", type, function (myArrayOfObjects){
-  myArrayOfObjects.forEach(function (d){
-    console.log(d["Country Name"] + " " + d["Indicator Name"] + ": " + d["2010"]);
+d3.csv("./raw_data/12-22-2015_data.csv", type, function(myArrayOfObjects) {
+  myArrayOfObjects.forEach(function(d) {
+    if (d["Indicator Name"] === "Population, ages 0-14 (% of total)") {
+      console.log(d["Country Name"] + " " + d["Indicator Name"] + ": " + d["2010"]);
+    }
   });
 });
 
-function type(d){
+function type(d) {
   // d["Indicator Name"] = parseFloat(d["Indicator Name"]);
   d["2010"] = parseFloat(d["2010"]);
   // console.log(d["2010"]);
