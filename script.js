@@ -60,15 +60,14 @@ function render(data) {
   }));
   var colorScale = d3.scale.category20();
 
-// apply x/yAxis functionality to respective x/yAxisG group d3 element
-xAxisG.call(xAxis);
-yAxisG.call(yAxis);
+  // apply x/yAxis functionality to respective x/yAxisG group d3 element
+  xAxisG.call(xAxis);
+  yAxisG.call(yAxis);
 
   // Bind data
   var circles = g.selectAll("circle").data(data);
   // Enter
   circles.enter().append("circle");
-  // .attr("r", 3);
 
   // Update
   circles
@@ -87,7 +86,6 @@ yAxisG.call(yAxis);
       function(d) {
         return colorScale(d[colorColumn]);
       });
-
 
   // Exit
   circles.exit().remove();
