@@ -1,4 +1,3 @@
-
 var outerWidth = 500;
 var outerHeight = 500;
 var circleRadius = 2;
@@ -41,25 +40,25 @@ function render(data) {
 
   // Update
   circles
-    // TODO - figure out how to bring in GDP, also to scale the domains based on filters
-    // .filter(function(d) {
-    //   return filter1 === d["Series Name"];
-    // })
+  // TODO - figure out how to bring in GDP, also to scale the domains based on filters
+  // .filter(function(d) {
+  //   return filter1 === d["Series Name"];
+  // })
     .attr("cx", function(d) {
       return xScale(d[xColumn]);
     })
     .attr("cy",
-    function(d) {
-      return yScale(d[yColumn]);
-    })
+      function(d) {
+        return yScale(d[yColumn]);
+      })
     .attr("r",
-    function(d) {
-      return rScale(d[rColumn]);
-    })
+      function(d) {
+        return rScale(d[rColumn]);
+      })
     .attr("fill",
-    function(d) {
-      return colorScale(d[colorColumn]);
-    });
+      function(d) {
+        return colorScale(d[colorColumn]);
+      });
 
 
   // Exit
@@ -72,14 +71,18 @@ function render(data) {
 
 d3.csv("./raw_data/Popular_indicators_Data.csv", type, function(data) {
   data1 = [];
-  console.log(data[0]);
-  console.log(data[0]["Series Name"]);
-  if (filter1 === data[0]["Series Name"]) {
-    console.log("true");
-  } else {
-    console.log("false");
+  for (var i = 0; i < data.length; i++) {
+    // console.log(data[i]);
+    // console.log(data[i]["Series Name"]);
+    if (filter1 === data[i]["Series Name"]) {
+      console.log("true");
+      data1.push(data[i]);
+    } else {
+      console.log("false");
+    }
   }
-
+  console.log(data1);
+  render(data1);
   // render(data)
   // render(data1);
 });
