@@ -6,7 +6,7 @@ var xColumn = "2010 [YR2010]";
 var yColumn = "2011 [YR2011]";
 var rColumn = "2012 [YR2012]";
 var colorColumn = "Series Name";
-var filter1 = "GDP growth (annual %)";
+// var filter1 = "Foreign direct investment, net (BoP, current US$)";
 
 // tethering size of the circle to another variable
 var rMin = 2;
@@ -40,16 +40,23 @@ function render(data) {
 
   // Update
   circles
+    // TODO - figure out how to bring in GDP, also to scale the domains based on filters
+    // .filter(function(d) {
+    //   return filter1 === d["Series Name"];
+    // })
     .attr("cx", function(d) {
       return xScale(d[xColumn]);
     })
-    .attr("cy", function(d) {
+    .attr("cy",
+    function(d) {
       return yScale(d[yColumn]);
     })
-    .attr("r", function(d) {
+    .attr("r",
+    function(d) {
       return rScale(d[rColumn]);
     })
-    .attr("fill", function(d) {
+    .attr("fill",
+    function(d) {
       return colorScale(d[colorColumn]);
     });
 
