@@ -6,7 +6,8 @@ var xColumn = "2010 [YR2010]";
 var yColumn = "2011 [YR2011]";
 var rColumn = "2012 [YR2012]";
 var colorColumn = "Series Name";
-// var filter1 = "Foreign direct investment, net (BoP, current US$)";
+var filter1 = "GDP growth (annual %)";
+var filter2 = "GNI per capita, PPP (current international $)";
 
 // tethering size of the circle to another variable
 var rMin = 2;
@@ -70,7 +71,17 @@ function render(data) {
 // Last Updated: 12/22/2015
 
 d3.csv("./raw_data/Popular_indicators_Data.csv", type, function(data) {
-  render(data);
+  data1 = [];
+  console.log(data[0]);
+  console.log(data[0]["Series Name"]);
+  if (filter1 === data[0]["Series Name"]) {
+    console.log("true");
+  } else {
+    console.log("false");
+  }
+
+  // render(data)
+  // render(data1);
 });
 
 function type(d) {
