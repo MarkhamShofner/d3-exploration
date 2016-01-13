@@ -1,5 +1,6 @@
 var outerWidth = 500;
 var outerHeight = 500;
+var margin = { left: 90, top: 30, right: 90, bottom: 30 };
 var circleRadius = 2;
 var xColumn = "2010 [YR2010]";
 var yColumn = "2011 [YR2011]";
@@ -12,13 +13,24 @@ var filter2 = "GNI per capita, PPP (current international $)";
 var rMin = 2;
 var rMax = 7;
 
+var innerWidth  = outerWidth  - margin.left - margin.right;
+var innerHeight = outerHeight - margin.top  - margin.bottom;
+
 var svg = d3.select("body").append("svg")
   .attr("width", outerWidth)
   .attr("height", outerHeight);
+var g = svg.append("g")
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+var xAxisG = g.append("g")
+  .attr("transform", "translate(0," + innerHeight + ")");
+var yAxisG = g.append("g");
 
 var xScale = d3.scale.linear().range([0, outerWidth]);
 var yScale = d3.scale.linear().range([outerHeight, 0]);
 var rScale = d3.scale.linear().range([rMin, rMax]);
+
+var xAxis = d3.svg.axis().scale(xScale).orient("bottom");
+var yAxis = d3.svg.axis().scale(yScale).orient("left");
 
 function render(data) {
   xScale.domain(d3.extent(data, function(d) {
@@ -32,18 +44,17 @@ function render(data) {
   }));
   var colorScale = d3.scale.category20();
 
+xAxisG.call(xAxis);
+yAxisG.call(yAxis);
+
   // Bind data
-  var circles = svg.selectAll("circle").data(data);
+  var circles = g.selectAll("circle").data(data);
   // Enter
   circles.enter().append("circle");
   // .attr("r", 3);
 
   // Update
   circles
-  // TODO - figure out how to bring in GDP, also to scale the domains based on filters
-  // .filter(function(d) {
-  //   return filter1 === d["Series Name"];
-  // })
     .attr("cx", function(d) {
       return xScale(d[xColumn]);
     })
@@ -72,19 +83,12 @@ function render(data) {
 d3.csv("./raw_data/Popular_indicators_Data.csv", type, function(data) {
   data1 = [];
   for (var i = 0; i < data.length; i++) {
-    // console.log(data[i]);
-    // console.log(data[i]["Series Name"]);
     if (filter1 === data[i]["Series Name"]) {
-      console.log("true");
       data1.push(data[i]);
-    } else {
-      console.log("false");
-    }
+    } else {}
   }
   console.log(data1);
   render(data1);
-  // render(data)
-  // render(data1);
 });
 
 function type(d) {
