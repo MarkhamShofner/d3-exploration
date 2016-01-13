@@ -19,8 +19,9 @@ var colorColumn = "Series Name";
 
 // filtered rows
 var filter1 = "GDP growth (annual %)";
-var filter1 = "GNI per capita, PPP (current international $)";
+var filter2 = "GNI per capita, PPP (current international $)";
 var filter3 = "Foreign direct investment, net (BoP, current US$)";
+var filter1 = "Internet users (per 100 people)";
 
 // create svg element based on set variable measures
 var svg = d3.select("body").append("svg")
@@ -34,12 +35,15 @@ var xAxisG = g.append("g")
 var yAxisG = g.append("g");
 
 // set scales using size ranges for elements
-var xScale = d3.scale.linear().range([0, outerWidth]);
-var yScale = d3.scale.linear().range([outerHeight, 0]);
+var xScale = d3.scale.linear().range([0, innerWidth]);
+var yScale = d3.scale.linear().range([innerHeight, 0]);
 var rScale = d3.scale.linear().range([rMin, rMax]);
 
 // set axes
-var xAxis = d3.svg.axis().scale(xScale).orient("bottom");
+var xAxis = d3.svg.axis().scale(xScale).orient("bottom")
+  .ticks(5);                   // Use approximately 5 ticks marks.
+  // .tickFormat(d3.format("s")); // Use intelligent abbreviations, e.g. 5M for 5 Million
+  // .outerTickSize(0);          // Turn off the marks at the end of the axis.
 var yAxis = d3.svg.axis().scale(yScale).orient("left");
 
 //render data
@@ -56,6 +60,7 @@ function render(data) {
   }));
   var colorScale = d3.scale.category20();
 
+// apply x/yAxis functionality to respective x/yAxisG group d3 element
 xAxisG.call(xAxis);
 yAxisG.call(yAxis);
 
