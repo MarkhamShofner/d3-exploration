@@ -17,6 +17,10 @@ var playground = {
     yColumn: "2011 [YR2011]",
     rColumn: "2012 [YR2012]",
     colorColumn: "Series Name",
+
+    filter2: "GDP growth (annual %)",
+    filter1: "GNI per capita, PPP (current international $)",
+    // filter2: "Foreign direct investment, net (BoP, current US$)",
   },
   page: {
     scales: {},
@@ -50,55 +54,87 @@ var playground = {
 
   },
   render: function (data1, data2) {
+    var self = this;
     // set domains based on input data
-    this.page.scales.xScale.domain(d3.extent(data1, function(d) {
-      return d[xColumn];
+    self.page.scales.xScale.domain(d3.extent(data1, function(d) {
+      return d[self.filtered.xColumn];
     }));
-    this.page.scales.yScale.domain(d3.extent(data2, function(d) {
-      return d[yColumn];
+    self.page.scales.yScale.domain(d3.extent(data2, function(d) {
+      return d[self.filtered.yColumn];
     }));
-    this.page.scales.rScale.domain(d3.extent(data1, function(d) {
-      return d[rColumn];
+    self.page.scales.rScale.domain(d3.extent(data1, function(d) {
+      return d[self.filtered.rColumn];
     }));
-    this.page.scales.colorScale = d3.scale.category20();
+    self.page.scales.colorScale = d3.scale.category20();
 
     // apply x/yAxis functionality to respective x/yAxisG group d3 element
-    this.page.xAxisG.call(this.page.xAxis);
-    this.page.yAxisG.call(this.page.yAxis);
+    self.page.xAxisG.call(self.page.xAxis);
+    self.page.yAxisG.call(self.page.yAxis);
 
     // Bind data
-    circles = this.page.g.selectAll("circle").data(data1);
+    circles = self.page.g.selectAll("circle").data(data1);
     // Enter
     circles.enter().append("circle");
 
     // Update
     circles
       .attr("cx", function(d) {
-        return xScale(d[this.filtered.xColumn]);
+        return self.page.scales.xScale(d[self.filtered.xColumn]);
       })
       .attr("cy",
         function(d) {
-          return yScale(d.second_filter);
+          return self.page.scales.yScale(d.second_filter);
         })
       .attr("r",
         function(d) {
-          return rScale(d[this.filtered.rColumn]);
+          return self.page.scales.rScale(d[self.filtered.rColumn]);
         })
       .attr("fill",
         function(d) {
-          return colorScale(d[this.filtered.colorColumn]);
+          return self.page.scales.colorScale(d[self.filtered.colorColumn]);
         });
 
     // Exit
     circles.exit().remove();
   },
   retrieveData: function(){
+    var self = this;
+    console.log(self);
+    // Import Data
+    d3.csv("./raw_data/Popular_indicators_Data0.csv", type, function(data) {
+      data1 = [];
+      data2 = [];
+      console.log(data);
+      for (var i = 0; i < data.length; i++) {
+        if (self.filtered.filter1 === data[i]["Series Name"]) {
+          data1.push(data[i]);
+        } else if (self.filtered.filter2 === data[i]["Series Name"]) {
+          data2.push(data[i]);
+        } else {}
+      }
+      // console.log(data1);
+      // console.log(data2);
+      dataS = [];
+      for (var j = 0; j < data1.length; j++) {
+        data1[j].second_filter = data2[j][self.filtered.yColumn];
+      }
+      console.log(data1);
+      self.render(data1, data2);
+    });
+
+    // set data #s/strings to floats
+    function type(d) {
+      d[self.filtered.xColumn] = parseFloat(d[self.filtered.xColumn]);
+      d[self.filtered.yColumn] = parseFloat(d[self.filtered.yColumn]);
+      d[self.filtered.rColumn] = parseFloat(d[self.filtered.rColumn]);
+      return d;
+    }
 
   },
   initialize: function() {
     this.setPlayground();
-    // this.retrieveData();
-    // this.render();
+    this.retrieveData();
+    this.render();
   }
 };
 
