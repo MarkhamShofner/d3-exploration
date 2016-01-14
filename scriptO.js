@@ -1,7 +1,7 @@
 var playground = {
   svgAttr: {
-    outerWidth: 350, //parseFloat(d3.select('.svgContain').style('width')),
-    outerHeight: 350, //;parseFloat(d3.select('.svgContain').style('height')),
+    outerWidth: 500, //parseFloat(d3.select('.svgContain').style('width')),
+    outerHeight: 500, //;parseFloat(d3.select('.svgContain').style('height')),
     margin: {
       left: 90,
       right: 30,
@@ -18,8 +18,8 @@ var playground = {
     rColumn: "2012 [YR2012]",
     colorColumn: "Series Name",
 
-    filter2: "GDP growth (annual %)",
-    filter1: "GNI per capita, PPP (current international $)",
+    filter1: "GDP growth (annual %)",
+    filter2: "GNI per capita, PPP (current international $)",
     // filter2: "Foreign direct investment, net (BoP, current US$)",
   },
   page: {
@@ -112,9 +112,7 @@ var playground = {
           data2.push(data[i]);
         } else {}
       }
-      // console.log(data1);
-      // console.log(data2);
-      dataS = [];
+
       for (var j = 0; j < data1.length; j++) {
         data1[j].second_filter = data2[j][self.filtered.yColumn];
       }
