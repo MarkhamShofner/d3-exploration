@@ -6,9 +6,17 @@ var app = express();
 
 app.use(express.static(__dirname + "/public"));
 
-app.get("/data", cors(), function (req, res) {
+app.get("/data1", cors(), function (req, res) {
 
-  request("http://api.worldbank.org/country?per_page=1000&format=json", function (err, data) {
+  request("http://api.worldbank.org/countries/all/indicators/NY.GDP.MKTP.KD.ZG?per_page=10000&format=json&MRV=1", function (err, data) {
+    var parsed = JSON.parse(data.body);
+    res.json(parsed);
+  });
+});
+
+app.get("/data2", cors(), function (req, res) {
+
+  request("http://api.worldbank.org/countries/all/indicators/NY.GDP.PCAP.CD?per_page=10000&format=json&MRV=1", function (err, data) {
     var parsed = JSON.parse(data.body);
     res.json(parsed);
   });

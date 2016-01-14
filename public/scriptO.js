@@ -53,7 +53,7 @@ var playground = {
     this.page.yAxis = d3.svg.axis().scale(this.page.scales.yScale).orient("left");
 
   },
-  render: function (data1, data2) {
+  render: function(data1, data2) {
     var self = this;
     // set domains based on input data
     self.page.scales.xScale.domain(d3.extent(data1, function(d) {
@@ -97,7 +97,7 @@ var playground = {
     // Exit
     circles.exit().remove();
   },
-  retrieveData: function(){
+  retrieveData: function() {
     var self = this;
     console.log(self);
     // Import Data
