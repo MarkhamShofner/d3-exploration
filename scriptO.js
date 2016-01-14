@@ -19,8 +19,8 @@ var playground = {
     colorColumn: "Series Name",
 
     filter1: "GDP growth (annual %)",
-    filter2: "GNI per capita, PPP (current international $)",
-    // filter2: "Foreign direct investment, net (BoP, current US$)",
+    // filter2: "GNI per capita, PPP (current international $)",
+    filter2: "Foreign direct investment, net (BoP, current US$)",
   },
   page: {
     scales: {},
