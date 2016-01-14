@@ -1,7 +1,7 @@
 var playground = {
   svgAttr: {
     outerWidth: 500, //parseFloat(d3.select('.svgContain').style('width')),
-    outerHeight: 500, //;parseFloat(d3.select('.svgContain').style('height')),
+    outerHeight: 500, //parseFloat(d3.select('.svgContain').style('height')),
     margin: {
       left: 90,
       right: 30,
@@ -13,14 +13,9 @@ var playground = {
     rMax: 7,
   },
   filtered: {
-    xColumn: "2010 [YR2010]",
-    yColumn: "2011 [YR2011]",
-    rColumn: "2012 [YR2012]",
-    colorColumn: "Series Name",
-
-    filter1: "GDP growth (annual %)",
-    filter2: "GNI per capita, PPP (current international $)",
-    // filter2: "Foreign direct investment, net (BoP, current US$)",
+    //make dynamic based on user selections
+    filter1: "NY.GDP.MKTP.KD.ZG",
+    filter2: "SP.DYN.LE00.IN",
   },
   page: {
     scales: {},
@@ -53,15 +48,21 @@ var playground = {
     this.page.yAxis = d3.svg.axis().scale(this.page.scales.yScale).orient("left");
 
   },
-  render: function(data1, data2) {
+  render: function(data1) {
+    console.log(data1);
     var self = this;
     // set domains based on input data
-    self.page.scales.xScale.domain(d3.extent(data2, function(d) {
+    self.page.scales.xScale.domain(d3.extent(data1, function(d) {
+      console.log(d.value);
       return d.value;
     }));
-    self.page.scales.yScale.domain(d3.extent(data2, function(d) {
-      return d.value;
+    self.page.scales.yScale.domain(d3.extent(data1, function(d) {
+      console.log(d.value2);
+      return d.value2;
     }));
+    console.log(self.page.scales.xScale.domain());
+    console.log(self.page.scales.yScale.domain());
+
     // self.page.scales.rScale.domain(d3.extent(data1, function(d) {
     //   return d.value;
     // }));
@@ -86,81 +87,39 @@ var playground = {
           return self.page.scales.yScale(d.value2);
         })
       .attr("r", 5);
-        // function(d) {
-        //   return self.page.scales.rScale(d.value);
-        // });
-      // .attr("fill",
-      //   function(d) {
-      //     return self.page.scales.colorScale(d[self.filtered.colorColumn]);
-      //   });
+    // function(d) {
+    //   return self.page.scales.rScale(d.value);
+    // });
+    // .attr("fill",
+    //   function(d) {
+    //     return self.page.scales.colorScale(d[self.filtered.colorColumn]);
+    //   });
 
     // Exit
     circles.exit().remove();
   },
   retrieveData: function() {
     var self = this;
-    console.log(self);
+    var url1 = 'http://localhost:3000/data/' + this.filtered.filter1;
+    var url2 = 'http://localhost:3000/data/' + this.filtered.filter2;
 
-    var url1 = 'http://localhost:3000/data1';
-    var url2 = 'http://localhost:3000/data2';
-
-    d3.json(url1, function (error, results) {
-
+    d3.json(url1, function(error, results) {
       var data1 = [];
       var data2 = [];
-      // console.log(error);
       data1 = results[1];
       $.getJSON(url2, function(data) {
-        // console.log(data);
-        // console.log(data[1]);
         data2 = data[1];
-
-
-        for (var i = 0; i<data1.length; i ++) {
-          // console.log(data1[i]);
+        for (var i = 0; i < data1.length; i++) {
           data1[i]["value2"] = data2[i].value;
         }
-
-        self.render(data1, data2);
-
-        console.log(data1);
-        console.log(data2);
+        self.render(data1);
       });
     });
-
-    // // Import Data
-    // d3.csv("./raw_data/Popular_indicators_Data0.csv", type, function(data) {
-    //   data1 = [];
-    //   data2 = [];
-    //   console.log(data);
-    //   for (var i = 0; i < data.length; i++) {
-    //     if (self.filtered.filter1 === data[i]["Series Name"]) {
-    //       data1.push(data[i]);
-    //     } else if (self.filtered.filter2 === data[i]["Series Name"]) {
-    //       data2.push(data[i]);
-    //     } else {}
-    //   }
-    //
-    //   for (var j = 0; j < data1.length; j++) {
-    //     data1[j].second_filter = data2[j][self.filtered.yColumn];
-    //   }
-    //   console.log(data1);
-    //   self.render(data1, data2);
-    // });
-
-    // set data #s/strings to floats
-    // function type(d) {
-    //   d[self.filtered.xColumn] = parseFloat(d[self.filtered.xColumn]);
-    //   d[self.filtered.yColumn] = parseFloat(d[self.filtered.yColumn]);
-    //   d[self.filtered.rColumn] = parseFloat(d[self.filtered.rColumn]);
-    //   return d;
-    // }
 
   },
   initialize: function() {
     this.setPlayground();
     this.retrieveData();
-    // this.render();
   }
 };
 
