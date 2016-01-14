@@ -1,3 +1,14 @@
+var playground = {
+  initialize: function(){
+
+  }
+};
+
+// $(document).ready(function(){
+//   playground.initialize();
+// });
+
+
 // base size/positioning variables
 var outerWidth = 500;
 var outerHeight = 500;
