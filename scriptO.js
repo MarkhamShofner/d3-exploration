@@ -26,8 +26,8 @@ var playground = {
     scales: {},
   },
   setPlayground: function() {
-    var innerWidth = outerWidth - this.svgAttr.margin.left - this.svgAttr.margin.right;
-    var innerHeight = outerHeight - this.svgAttr.margin.top - this.svgAttr.margin.bottom;
+    var innerWidth = this.svgAttr.outerWidth - this.svgAttr.margin.left - this.svgAttr.margin.right;
+    var innerHeight = this.svgAttr.outerHeight - this.svgAttr.margin.top - this.svgAttr.margin.bottom;
 
     // create svg element based on set variable measures
     this.page.svg = d3.select("body").append("svg")
