@@ -18,10 +18,10 @@ var rColumn = "2012 [YR2012]";
 var colorColumn = "Series Name";
 
 // filtered rows
-var filter1 = "GDP growth (annual %)";
-var filter2 = "GNI per capita, PPP (current international $)";
+var filter2 = "GDP growth (annual %)";
+var filter1 = "GNI per capita, PPP (current international $)";
 var filter3 = "Foreign direct investment, net (BoP, current US$)";
-var filter1 = "Internet users (per 100 people)";
+var filter2 = "Internet users (per 100 people)";
 
 // create svg element based on set variable measures
 var svg = d3.select("body").append("svg")
@@ -47,15 +47,15 @@ var xAxis = d3.svg.axis().scale(xScale).orient("bottom")
 var yAxis = d3.svg.axis().scale(yScale).orient("left");
 
 //render data
-function render(data) {
+function render(dataS, data1, data2) {
   // set domains based on input data
-  xScale.domain(d3.extent(data, function(d) {
+  xScale.domain(d3.extent(data1, function(d) {
     return d[xColumn];
   }));
-  yScale.domain(d3.extent(data, function(d) {
+  yScale.domain(d3.extent(data2, function(d) {
     return d[yColumn];
   }));
-  rScale.domain(d3.extent(data, function(d) {
+  rScale.domain(d3.extent(data1, function(d) {
     return d[rColumn];
   }));
   var colorScale = d3.scale.category20();
@@ -64,8 +64,10 @@ function render(data) {
   xAxisG.call(xAxis);
   yAxisG.call(yAxis);
 
+  // var data = [data1, data2];
+
   // Bind data
-  var circles = g.selectAll("circle").data(data);
+  var circles = g.selectAll("circle").data(data1);
   // Enter
   circles.enter().append("circle");
 
@@ -76,7 +78,7 @@ function render(data) {
     })
     .attr("cy",
       function(d) {
-        return yScale(d[yColumn]);
+        return yScale(d["second_filter"]);
       })
     .attr("r",
       function(d) {
@@ -98,13 +100,22 @@ function render(data) {
 // Import Data
 d3.csv("./raw_data/Popular_indicators_Data.csv", type, function(data) {
   data1 = [];
+  data2 = [];
   for (var i = 0; i < data.length; i++) {
     if (filter1 === data[i]["Series Name"]) {
       data1.push(data[i]);
-    } else {}
+    } else if (filter2 === data[i]["Series Name"]){
+      data2.push(data[i]);
+    }else {}
+  }
+  // console.log(data1);
+  // console.log(data2);
+  dataS = [];
+  for (var j = 0; j < data1.length; j ++) {
+    data1[j]["second_filter"] = data2[j][yColumn];
   }
   console.log(data1);
-  render(data1);
+  render(dataS, data1, data2);
 });
 
 // set data #s/strings to floats
