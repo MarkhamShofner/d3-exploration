@@ -13,7 +13,7 @@ var playground = {
     rMax: 7,
   },
   filtered: {
-    //make dynamic based on user selections
+    //static choices pre-user selections
     filter1: "NY.GDP.MKTP.KD.ZG",
     filter2: "NY.GDP.MKTP.KD.ZG",
   },
@@ -152,13 +152,3 @@ var playground = {
 $(document).ready(function() {
   playground.initialize();
 });
-
-
-// var filter1 = function getField() {
-//   console.log("filter1");
-//   return d3.select("select").node().value;
-// }();
-//
-// d3.select("select").on("change",function(){
-//   var filter1 = this.getField();
-// });
