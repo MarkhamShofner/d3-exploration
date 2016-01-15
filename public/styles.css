@@ -1,9 +1,12 @@
 body {
-  background-color: green;
+  /*background-color: green;*/
+  background-image: url(images/earth_lights_lrg.jpg)
 }
 
 svg {
-  background-color: white;
+  background-color: lightgrey;
+  display: block;
+  margin: auto;
 }
 
 /*circle {

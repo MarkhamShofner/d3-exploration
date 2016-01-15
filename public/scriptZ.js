@@ -84,7 +84,10 @@ var playground = {
         function(d) {
           return self.page.scales.yScale(d.value2);
         })
-      .attr("r", 5);
+      .attr("r", 5).on("mouseover", function(d){
+        console.log(d);
+        // create viz div based on d
+      })
     // function(d) {
     //   return self.page.scales.rScale(d.value);
     // });
