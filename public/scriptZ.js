@@ -100,8 +100,8 @@ var playground = {
   },
   retrieveData: function() {
     var self = this;
-    var url1 = 'http://localhost:3000/data/' + this.filtered.filter1;
-    var url2 = 'http://localhost:3000/data/' + this.filtered.filter2;
+    var url1 = 'http://worldbankindicators.herokuapp/data/' + this.filtered.filter1;
+    var url2 = 'http://worldbankindicators.herokuapp/data/' + this.filtered.filter2;
 
     d3.json(url1, function(error, results) {
       var data1 = [];
