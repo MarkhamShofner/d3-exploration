@@ -49,19 +49,17 @@ var playground = {
 
   },
   render: function(data1) {
-    console.log(data1);
     var self = this;
     // set domains based on input data
     self.page.scales.xScale.domain(d3.extent(data1, function(d) {
-      console.log(d.value);
       return d.value;
     }));
     self.page.scales.yScale.domain(d3.extent(data1, function(d) {
-      console.log(d.value2);
+      // console.log(d.value2);
       return d.value2;
     }));
-    console.log(self.page.scales.xScale.domain());
-    console.log(self.page.scales.yScale.domain());
+    // console.log(self.page.scales.xScale.domain());
+    // console.log(self.page.scales.yScale.domain());
 
     // self.page.scales.rScale.domain(d3.extent(data1, function(d) {
     //   return d.value;
@@ -119,9 +117,35 @@ var playground = {
     });
 
   },
+  getFirstField: function() {
+    return d3.select("#firstFilter").node().value;
+  },
+  getSecondField: function() {
+    return d3.select("#secondFilter").node().value;
+  },
+  changeListen1: function() {
+    var self = this;
+    d3.select("#firstFilter").on("change", function() {
+      console.log(self.filtered.filter1);
+      self.filtered.filter1 = self.getFirstField();
+      console.log(self.filtered.filter1);
+      self.retrieveData();
+    });
+  },
+  changeListen2: function() {
+    var self = this;
+    d3.select("#secondFilter").on("change", function() {
+      console.log(self.filtered.filter2);
+      self.filtered.filter2 = self.getSecondField();
+      console.log(self.filtered.filter2);
+      self.retrieveData();
+    });
+  },
   initialize: function() {
     this.setPlayground();
     this.retrieveData();
+    this.changeListen1();
+    this.changeListen2();
   }
 };
 
@@ -138,40 +162,3 @@ $(document).ready(function() {
 // d3.select("select").on("change",function(){
 //   var filter1 = this.getField();
 // });
-
-
-
-//all countries against one indicators
-// http://api.worldbank.org/countries/all/indicators/SP.POP.TOTL?format=json
-
-
-
-
-// function render (data1, data2) {
-//   console.log(data1);
-//   console.log(data2);
-// }
-
-//
-
-
-// $.getJSONp(url, function( data ) {
-//   console.log(data);
-// });
-
-
-// $.ajax({
-//   type: "GET",
-//   url: "http://localhost:3000/data",
-//   data: {},
-//   dataType: "json"
-// })
-//   .always(function(data,err){
-//     console.log(data);
-//     console.log(err);
-//   })
-//   .fail(function(err) {
-//     console.log("error here");
-//     // console.log(err);
-//   })
-//   ;
