@@ -1,8 +1,9 @@
 # d3-exploration
 
-deployed link: //to be filled in
+deployed link: https://worldbankindicators.herokuapp.com/
 
 ○ An embedded screenshot of the app
+![screenshot](http://imgur.com/gallery/HihrzyX/new)
 
 ○ Explanations of the technologies used
 
