@@ -3,7 +3,7 @@
 deployed link: https://worldbankindicators.herokuapp.com/
 
 ○ An embedded screenshot of the app
-![screenshot](http://imgur.com/gallery/HihrzyX/new)
+![screenshot](http://i.imgur.com/HihrzyX.png)
 
 ○ Explanations of the technologies used
 
