@@ -15,7 +15,7 @@ var playground = {
   filtered: {
     //make dynamic based on user selections
     filter1: "NY.GDP.MKTP.KD.ZG",
-    filter2: "SP.DYN.LE00.IN",
+    filter2: "NY.GDP.MKTP.KD.ZG",
   },
   page: {
     scales: {},
@@ -100,8 +100,10 @@ var playground = {
   },
   retrieveData: function() {
     var self = this;
-    var url1 = 'https://worldbankindicators.herokuapp.com/data/' + this.filtered.filter1;
-    var url2 = 'https://worldbankindicators.herokuapp.com/data/' + this.filtered.filter2;
+    var url1 = 'http://localhost:3000/data/' + this.filtered.filter1;
+    var url2 = 'http://localhost:3000/data/' + this.filtered.filter2;
+    // var url1 = 'https://worldbankindicators.herokuapp.com/data/' + this.filtered.filter1;
+    // var url2 = 'https://worldbankindicators.herokuapp.com/data/' + this.filtered.filter2;
 
     d3.json(url1, function(error, results) {
       var data1 = [];
