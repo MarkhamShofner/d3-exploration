@@ -77,6 +77,7 @@ var playground = {
 
     // Update
     circles
+      .transition().duration(1000)
       .attr("cx", function(d) {
         return self.page.scales.xScale(d.value);
       })
@@ -84,10 +85,13 @@ var playground = {
         function(d) {
           return self.page.scales.yScale(d.value2);
         })
-      .attr("r", 5).on("mouseover", function(d){
+      .attr("r", 5)
+
+    circles
+      .on("mouseover", function(d){
         console.log(d);
         // create viz div based on d
-      })
+      });
     // function(d) {
     //   return self.page.scales.rScale(d.value);
     // });
