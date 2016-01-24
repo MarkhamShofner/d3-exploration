@@ -85,7 +85,7 @@ var playground = {
         function(d) {
           return self.page.scales.yScale(d.value2);
         })
-      .attr("r", 5)
+      .attr("r", 5);
 
     circles
       .on("mouseover", function(d){
