@@ -120,7 +120,11 @@ var playground = {
         data2 = data[1];
         for (var i = 0; i < data1.length; i++) {
           data1[i].value2 = data2[i].value;
+          if (data1[i].value2 === null || data1[i].value2 === null) {
+            console.log("null value");
+          }
         }
+        console.log("break");
         // render the full data set
         self.render(data1);
       });
