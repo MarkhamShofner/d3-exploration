@@ -52,19 +52,13 @@ var playground = {
   render: function(data1) {
     var self = this;
     // set domains based on input data
-    console.log(self.page.scales.xScale.domain());
     self.page.scales.xScale.domain(d3.extent(data1, function(d) {
-      // console.log("xScale");
-      // console.log(d.value);
       return d.value;
     }));
-    console.log(self.page.scales.xScale.domain());
-    console.log(self.page.scales.yScale.domain());
+
     self.page.scales.yScale.domain(d3.extent(data1, function(d) {
-      // console.log(d.value);
       return d.value2;
     }));
-    console.log(self.page.scales.yScale.domain());
 
     // self.page.scales.rScale.domain(d3.extent(data1, function(d) {
     //   return d.value;
@@ -120,6 +114,7 @@ var playground = {
       var data1 = [];
       var data2 = [];
       data1 = results[1];
+      console.log(data1);
       // augment the first calls data using data from the second call
       $.getJSON(url2, function(data) {
         data2 = data[1];
