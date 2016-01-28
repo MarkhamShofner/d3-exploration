@@ -134,18 +134,14 @@ var playground = {
   changeListen1: function() {
     var self = this;
     d3.select("#firstFilter").on("change", function() {
-      console.log(self.filtered.filter1);
       self.filtered.filter1 = self.getFirstField();
-      console.log(self.filtered.filter1);
       self.retrieveData();
     });
   },
   changeListen2: function() {
     var self = this;
     d3.select("#secondFilter").on("change", function() {
-      console.log(self.filtered.filter2);
       self.filtered.filter2 = self.getSecondField();
-      console.log(self.filtered.filter2);
       self.retrieveData();
     });
   },
