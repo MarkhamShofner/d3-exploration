@@ -53,9 +53,12 @@ var playground = {
     var self = this;
     // set domains based on input data
     self.page.scales.xScale.domain(d3.extent(data1, function(d) {
+      console.log("xScale");
+      console.log(d.value);
       return d.value;
     }));
     self.page.scales.yScale.domain(d3.extent(data1, function(d) {
+      console.log(d.value);
       return d.value2;
     }));
     // console.log(self.page.scales.xScale.domain());
@@ -128,6 +131,7 @@ var playground = {
           }
         }
         console.log(dataC.length);
+        console.log(dataC);
         console.log("break");
         // render the full data set
         // console.log(data1);
