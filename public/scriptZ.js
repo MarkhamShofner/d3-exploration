@@ -126,11 +126,12 @@ var playground = {
         dataC = [];
         for (var i = 0; i < data1.length; i++) {
           data1[i].value2 = data2[i].value;
-          if (data1[i].value !== null && data1[i].value2 !== null) {
+          data1[i].value = parseFloat(data1[i].value);
+          data1[i].value2 = parseFloat(data1[i].value2);
+          if (data1[i].value !== NaN && data1[i].value2 !== NaN) {
             console.log("true values");
             dataC.push(data1[i]);
-            // typeof(data1[i].valu);
-
+            // console.log(typeof data1[i].value);
             // console.log(dataC);
           }
         }
