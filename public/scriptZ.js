@@ -118,16 +118,21 @@ var playground = {
       // augment the first calls data using data from the second call
       $.getJSON(url2, function(data) {
         data2 = data[1];
+        dataC = [];
         for (var i = 0; i < data1.length; i++) {
           data1[i].value2 = data2[i].value;
-          dataC = [];
           if (data1[i].value2 !== null && data1[i].value2 !== null) {
             console.log("true values");
+            dataC.push(data1[i]);
+            // console.log(dataC);
           }
         }
+        console.log(dataC.length);
         console.log("break");
         // render the full data set
-        self.render(data1);
+        // console.log(data1);
+        // console.log(dataC);
+        self.render(dataC);
       });
     });
 
