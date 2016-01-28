@@ -56,7 +56,6 @@ var playground = {
       return d.value;
     }));
     self.page.scales.yScale.domain(d3.extent(data1, function(d) {
-      // console.log(d.value2);
       return d.value2;
     }));
     // console.log(self.page.scales.xScale.domain());
@@ -111,15 +110,18 @@ var playground = {
     // var url1 = 'https://worldbankindicators.herokuapp.com/data/' + this.filtered.filter1;
     // var url2 = 'https://worldbankindicators.herokuapp.com/data/' + this.filtered.filter2;
 
+    // make calls to retrieve world bank data
     d3.json(url1, function(error, results) {
       var data1 = [];
       var data2 = [];
       data1 = results[1];
+      // augment the first calls data using data from the second call
       $.getJSON(url2, function(data) {
         data2 = data[1];
         for (var i = 0; i < data1.length; i++) {
-          data1[i]["value2"] = data2[i].value;
+          data1[i].value2 = data2[i].value;
         }
+        // render the full data set
         self.render(data1);
       });
     });
