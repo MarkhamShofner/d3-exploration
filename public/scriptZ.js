@@ -52,17 +52,19 @@ var playground = {
   render: function(data1) {
     var self = this;
     // set domains based on input data
+    console.log(self.page.scales.xScale.domain());
     self.page.scales.xScale.domain(d3.extent(data1, function(d) {
-      console.log("xScale");
-      console.log(d.value);
+      // console.log("xScale");
+      // console.log(d.value);
       return d.value;
     }));
+    console.log(self.page.scales.xScale.domain());
+    console.log(self.page.scales.yScale.domain());
     self.page.scales.yScale.domain(d3.extent(data1, function(d) {
-      console.log(d.value);
+      // console.log(d.value);
       return d.value2;
     }));
-    // console.log(self.page.scales.xScale.domain());
-    // console.log(self.page.scales.yScale.domain());
+    console.log(self.page.scales.yScale.domain());
 
     // self.page.scales.rScale.domain(d3.extent(data1, function(d) {
     //   return d.value;
@@ -124,14 +126,16 @@ var playground = {
         dataC = [];
         for (var i = 0; i < data1.length; i++) {
           data1[i].value2 = data2[i].value;
-          if (data1[i].value2 !== null && data1[i].value2 !== null) {
+          if (data1[i].value !== null && data1[i].value2 !== null) {
             console.log("true values");
             dataC.push(data1[i]);
+            // typeof(data1[i].valu);
+
             // console.log(dataC);
           }
         }
-        console.log(dataC.length);
-        console.log(dataC);
+        // console.log(dataC.length);
+        // console.log(dataC);
         console.log("break");
         // render the full data set
         // console.log(data1);
