@@ -128,7 +128,7 @@ var playground = {
           data1[i].value2 = data2[i].value;
           data1[i].value = parseFloat(data1[i].value);
           data1[i].value2 = parseFloat(data1[i].value2);
-          if (data1[i].value !== NaN && data1[i].value2 !== NaN) {
+          if (!isNaN(data1[i].value) && !isNaN(data1[i].value2)) {
             console.log("true values");
             dataC.push(data1[i]);
             // console.log(typeof data1[i].value);
