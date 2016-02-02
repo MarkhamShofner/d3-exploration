@@ -52,6 +52,8 @@ var playground = {
       .tickFormat(d3.format("s"))
       .outerTickSize(0);
 
+    // assign infoBox html property to object
+    this.page.infoBox = d3.select(".infoBox");
   },
   render: function(data1) {
     var self = this;
@@ -93,6 +95,7 @@ var playground = {
     circles
       .on("mouseover", function(d){
         console.log(d);
+        self.entityHover();
         // create viz div based on d
       });
     // function(d) {
@@ -157,6 +160,11 @@ var playground = {
       self.filtered.filter2 = self.getSecondField();
       self.retrieveData();
     });
+  },
+  entityHover: function() {
+    var infoBox = playground.page.infoBox;
+    console.log("hovered!!");
+    infoBox.style("display", "block");
   },
   initialize: function() {
     this.setPlayground();

@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Poiret+One');
 
+* {
+  /*color: white;*/
+}
+
 body {
   /*background-color: green;*/
   background-image: url(images/earth_lights_lrg.jpg);
@@ -32,10 +36,6 @@ svg {
   shape-rendering: crispEdges;
 }
 
-p {
-  color: white;
-}
-
 .dropdown {
   font: 16pt sans-serif;
   font-family: 'Poiret One', cursive;
@@ -44,4 +44,20 @@ p {
 .selectText {
   font: 16pt sans-serif;
   font-family: 'Poiret One', cursive;
+}
+
+.infoBox{
+  height:auto;
+  width:auto;
+  border-radius: 5px;
+  background-color: white;
+  position:absolute;
+  border: 1px solid black;
+  display: none;
+  padding:5px;
+  text-align: center;
+}
+.indicator{
+  text-align: left;
+  font-size: 0.8em;
 }
