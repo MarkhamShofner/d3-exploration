@@ -26,7 +26,7 @@ var playground = {
     var innerHeight = this.svgAttr.outerHeight - this.svgAttr.margin.top - this.svgAttr.margin.bottom;
 
     // create svg element based on set variable measures
-    this.page.svg = d3.select("header").append("svg")
+    this.page.svg = d3.select(".svgEl").append("svg")
       .attr("width", this.svgAttr.outerWidth)
       .attr("height", this.svgAttr.outerHeight);
     // create g element in svg for axes
