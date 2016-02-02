@@ -45,10 +45,12 @@ var playground = {
 
     // set axes
     this.page.xAxis = d3.svg.axis().scale(this.page.scales.xScale).orient("bottom")
-      .ticks(5); // Use approximately 5 ticks marks.
-    // .tickFormat(d3.format("s")); // Use intelligent abbreviations, e.g. 5M for 5 Million
-    // .outerTickSize(0);          // Turn off the marks at the end of the axis.
-    this.page.yAxis = d3.svg.axis().scale(this.page.scales.yScale).orient("left");
+      .ticks(4) // Use approximately 5 ticks marks.
+      .tickFormat(d3.format("s")) // Use intelligent abbreviations, e.g. 5M for 5 Million
+      .outerTickSize(0);          // Turn off the marks at the end of the axis.
+    this.page.yAxis = d3.svg.axis().scale(this.page.scales.yScale).orient("left")
+      .tickFormat(d3.format("s"))
+      .outerTickSize(0);
 
   },
   render: function(data1) {
