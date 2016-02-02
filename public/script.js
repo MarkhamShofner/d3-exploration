@@ -9,9 +9,9 @@ var playground = {
       top: 40,
       bottom: 50
     },
-    circleRadius: 2,
-    rMin: 2,
-    rMax: 7,
+    circleRadius: 3,
+    // rMin: 2,
+    // rMax: 7,
   },
   filtered: {
     //static choices pre-user selections
@@ -39,7 +39,7 @@ var playground = {
     // set scales using size ranges for elements
     this.page.scales.xScale = d3.scale.linear().range([0, innerWidth]);
     this.page.scales.yScale = d3.scale.linear().range([innerHeight, 0]);
-    this.page.scales.rScale = d3.scale.linear().range([this.svgAttr.rMin, this.svgAttr.rMax]);
+    // this.page.scales.rScale = d3.scale.linear().range([this.svgAttr.rMin, this.svgAttr.rMax]);
 
     // set axes
     this.page.xAxis = d3.svg.axis().scale(this.page.scales.xScale).orient("bottom")
@@ -84,7 +84,7 @@ var playground = {
         function(d) {
           return self.page.scales.yScale(d.value2);
         })
-      .attr("r", 5);
+      .attr("r", this.svgAttr.circleRadius);
 
     circles
       .on("mouseover", function(d){
@@ -128,7 +128,8 @@ var playground = {
             dataC.push(data1[i]);
           }
         }
-        console.log("line break");
+        console.log("break");
+        self.render(dataC);
       });
     });
 
