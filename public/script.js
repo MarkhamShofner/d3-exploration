@@ -1,11 +1,11 @@
 // set up an object that represents the future action in the svg playground
 var playground = {
   svgAttr: {
-    outerWidth: 500, //parseFloat(d3.select('.svgContain').style('width')),
+    outerWidth: 550, //parseFloat(d3.select('.svgContain').style('width')),
     outerHeight: 500, //parseFloat(d3.select('.svgContain').style('height')),
     margin: {
-      left: 50,
-      right: 40,
+      left: 90,
+      right: 90,
       top: 40,
       bottom: 50
     },
@@ -15,8 +15,8 @@ var playground = {
   },
   filtered: {
     //static choices pre-user selections
-    filter1: "NY.GDP.MKTP.KD.ZG",
-    filter2: "NY.GDP.MKTP.KD.ZG",
+    filter1: "IT.NET.USER.P2",
+    filter2: "IT.NET.USER.P2",
   },
   page: {
     scales: {},
