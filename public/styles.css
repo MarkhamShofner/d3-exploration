@@ -13,10 +13,11 @@ svg {
   margin: auto;
 }
 
-/*circle {
-  fill: none;
-  stroke-width: 5px;
-}*/
+.axesOptions {
+  display: block;
+  width: 450px;
+  margin: 10px auto;
+}
 
 .axis text {
   font: 16pt sans-serif;
@@ -34,7 +35,12 @@ p {
   color: white;
 }
 
-.test {
+.dropdown {
+  font: 16pt sans-serif;
+  font-family: 'Poiret One', cursive;
+  color: white;
+}
+.selectText {
   font: 16pt sans-serif;
   font-family: 'Poiret One', cursive;
 }

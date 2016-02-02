@@ -12,56 +12,58 @@
 <body>
   <!-- currently static selectors for both dropdown series. could be streamlined in future refactor. -->
   <header>
-    <p> X-Axis </p>
-    <select id="firstFilter">
-      <option value="NY.GDP.MKTP.KD.ZG">GDP growth (annual %)</option>
-      <option value="NY.GDP.MKTP.CD">GDP at market prices (current US$)</option>
-      <option value="NY.GDP.PCAP.CD">GDP per capita (current US$)</option>
-      <option value="NY.GNP.PCAP.CD">GNI per capita, Atlas method (current US$)</option>
-      <option value="NE.EXP.GNFS.ZS">Exports of goods and services (% of GDP)</option>
-      <option value="BN.KLT.DINV.CD">Foreign direct investment, net (BoP, current US$)</option>
-      <option value="NY.GNP.PCAP.PP.CD">GNI per capita, PPP (current international $)</option>
-      <option value="SI.POV.GINI">GINI index (World Bank estimate)</option>
-      <option value="FP.CPI.TOTL.ZG">Inflation, consumer prices (annual %)</option>
-      <option value="NY.GDP.DEFL.KD.ZG">Inflation, GDP deflator (annual %)</option>
-      <option value="IT.NET.USER.P2">Internet users (per 100 people)</option>
-      <option value="NE.IMP.GNFS.ZS">Imports of goods and services (% of GDP)</option>
-      <option value="SP.DYN.LE00.IN">Life expectancy at birth, total (years)</option>
-      <option value="SE.ADT.LITR.ZS">Adult literacy rate, population 15+ years, both sexes (%)</option>
-      <option value="SL.UEM.TOTL.ZS">Unemployment, total (% of total labor force)</option>
-      <!-- <option value="SI.POV.NAHC">Poverty headcount ratio at national poverty lines (% of population)</option> -->
-      <option value="NV.AGR.TOTL.ZS">Agriculture, value added (% of GDP)</option>
-      <option value="EN.ATM.CO2E.PC">CO2 emissions (metric tons per capita)</option>
-      <!-- <option value="GC.DOD.TOTL.GD.ZS">Central government debt, total (% of GDP)</option> -->
-      <option value="SP.POP.TOTL">Population, total</option>
-      <!-- <option value="SG.VAW.ARGU.ZS">Women who believe a husband is justified in beating his wife when she argues with him (%)</option> -->
-    </select>
-    <!-- <br> -->
+    <div class="axesOptions">
+      <label for="firstFilter" class="dropdown">X-Axis:</label>
+      <select id="firstFilter">
+        <option value="NY.GDP.MKTP.KD.ZG" class="selectText">GDP growth (annual %)</option>
+        <option value="NY.GDP.MKTP.CD">GDP at market prices (current US$)</option>
+        <option value="NY.GDP.PCAP.CD">GDP per capita (current US$)</option>
+        <option value="NY.GNP.PCAP.CD">GNI per capita, Atlas method (current US$)</option>
+        <option value="NE.EXP.GNFS.ZS">Exports of goods and services (% of GDP)</option>
+        <option value="BN.KLT.DINV.CD">Foreign direct investment, net (BoP, current US$)</option>
+        <option value="NY.GNP.PCAP.PP.CD">GNI per capita, PPP (current international $)</option>
+        <option value="SI.POV.GINI">GINI index (World Bank estimate)</option>
+        <option value="FP.CPI.TOTL.ZG">Inflation, consumer prices (annual %)</option>
+        <option value="NY.GDP.DEFL.KD.ZG">Inflation, GDP deflator (annual %)</option>
+        <option value="IT.NET.USER.P2">Internet users (per 100 people)</option>
+        <option value="NE.IMP.GNFS.ZS">Imports of goods and services (% of GDP)</option>
+        <option value="SP.DYN.LE00.IN">Life expectancy at birth, total (years)</option>
+        <option value="SE.ADT.LITR.ZS">Adult literacy rate, population 15+ years, both sexes (%)</option>
+        <option value="SL.UEM.TOTL.ZS">Unemployment, total (% of total labor force)</option>
+        <!-- <option value="SI.POV.NAHC">Poverty headcount ratio at national poverty lines (% of population)</option> -->
+        <option value="NV.AGR.TOTL.ZS">Agriculture, value added (% of GDP)</option>
+        <option value="EN.ATM.CO2E.PC">CO2 emissions (metric tons per capita)</option>
+        <!-- <option value="GC.DOD.TOTL.GD.ZS">Central government debt, total (% of GDP)</option> -->
+        <option value="SP.POP.TOTL">Population, total</option>
+        <!-- <option value="SG.VAW.ARGU.ZS">Women who believe a husband is justified in beating his wife when she argues with him (%)</option> -->
+      </select>
+      <br>
 
-    <p> Y-Axis </p>
-    <select id="secondFilter">
-      <option value="NY.GDP.MKTP.KD.ZG">GDP growth (annual %)</option>
-      <option value="NY.GDP.MKTP.CD">GDP at market prices (current US$)</option>
-      <option value="NY.GDP.PCAP.CD">GDP per capita (current US$)</option>
-      <option value="NY.GNP.PCAP.CD">GNI per capita, Atlas method (current US$)</option>
-      <option value="NE.EXP.GNFS.ZS">Exports of goods and services (% of GDP)</option>
-      <option value="BN.KLT.DINV.CD">Foreign direct investment, net (BoP, current US$)</option>
-      <option value="NY.GNP.PCAP.PP.CD">GNI per capita, PPP (current international $)</option>
-      <option value="SI.POV.GINI">GINI index (World Bank estimate)</option>
-      <option value="FP.CPI.TOTL.ZG">Inflation, consumer prices (annual %)</option>
-      <option value="NY.GDP.DEFL.KD.ZG">Inflation, GDP deflator (annual %)</option>
-      <option value="IT.NET.USER.P2">Internet users (per 100 people)</option>
-      <option value="NE.IMP.GNFS.ZS">Imports of goods and services (% of GDP)</option>
-      <option value="SP.DYN.LE00.IN">Life expectancy at birth, total (years)</option>
-      <option value="SE.ADT.LITR.ZS">Adult literacy rate, population 15+ years, both sexes (%)</option>
-      <option value="SL.UEM.TOTL.ZS">Unemployment, total (% of total labor force)</option>
-      <!-- <option value="SI.POV.NAHC">Poverty headcount ratio at national poverty lines (% of population)</option> -->
-      <option value="NV.AGR.TOTL.ZS">Agriculture, value added (% of GDP)</option>
-      <option value="EN.ATM.CO2E.PC">CO2 emissions (metric tons per capita)</option>
-      <!-- <option value="GC.DOD.TOTL.GD.ZS">Central government debt, total (% of GDP)</option> -->
-      <option value="SP.POP.TOTL">Population, total</option>
-      <!-- <option value="SG.VAW.ARGU.ZS">Women who believe a husband is justified in beating his wife when she argues with him (%)</option> -->
-    </select>
+      <label for="secondFilter" class="dropdown">Y-Axis:</label>
+      <select id="secondFilter">
+        <option value="NY.GDP.MKTP.KD.ZG">GDP growth (annual %)</option>
+        <option value="NY.GDP.MKTP.CD">GDP at market prices (current US$)</option>
+        <option value="NY.GDP.PCAP.CD">GDP per capita (current US$)</option>
+        <option value="NY.GNP.PCAP.CD">GNI per capita, Atlas method (current US$)</option>
+        <option value="NE.EXP.GNFS.ZS">Exports of goods and services (% of GDP)</option>
+        <option value="BN.KLT.DINV.CD">Foreign direct investment, net (BoP, current US$)</option>
+        <option value="NY.GNP.PCAP.PP.CD">GNI per capita, PPP (current international $)</option>
+        <option value="SI.POV.GINI">GINI index (World Bank estimate)</option>
+        <option value="FP.CPI.TOTL.ZG">Inflation, consumer prices (annual %)</option>
+        <option value="NY.GDP.DEFL.KD.ZG">Inflation, GDP deflator (annual %)</option>
+        <option value="IT.NET.USER.P2">Internet users (per 100 people)</option>
+        <option value="NE.IMP.GNFS.ZS">Imports of goods and services (% of GDP)</option>
+        <option value="SP.DYN.LE00.IN">Life expectancy at birth, total (years)</option>
+        <option value="SE.ADT.LITR.ZS">Adult literacy rate, population 15+ years, both sexes (%)</option>
+        <option value="SL.UEM.TOTL.ZS">Unemployment, total (% of total labor force)</option>
+        <!-- <option value="SI.POV.NAHC">Poverty headcount ratio at national poverty lines (% of population)</option> -->
+        <option value="NV.AGR.TOTL.ZS">Agriculture, value added (% of GDP)</option>
+        <option value="EN.ATM.CO2E.PC">CO2 emissions (metric tons per capita)</option>
+        <!-- <option value="GC.DOD.TOTL.GD.ZS">Central government debt, total (% of GDP)</option> -->
+        <option value="SP.POP.TOTL">Population, total</option>
+        <!-- <option value="SG.VAW.ARGU.ZS">Women who believe a husband is justified in beating his wife when she argues with him (%)</option> -->
+      </select>
+    </div>
   </header>
 
   <main>
@@ -73,7 +75,7 @@
   </footer>
 
   <p class="test"> TEST </p>
-  
+
   <script src="script.js"></script>
 
 </body>
