@@ -9,7 +9,7 @@ var playground = {
       top: 40,
       bottom: 50
     },
-    circleRadius: 3,
+    circleRadius: 4,
     // rMin: 2,
     // rMax: 7,
   },
