@@ -33,8 +33,10 @@ var playground = {
     this.page.g = this.page.svg.append("g")
       .attr("transform", "translate(" + this.svgAttr.margin.left + "," + this.svgAttr.margin.top + ")");
     this.page.xAxisG = this.page.g.append("g")
+      .attr("class", "x axis")
       .attr("transform", "translate(0," + innerHeight + ")");
-    this.page.yAxisG = this.page.g.append("g");
+    this.page.yAxisG = this.page.g.append("g")
+      .attr("class", "y axis");
 
     // set scales using size ranges for elements
     this.page.scales.xScale = d3.scale.linear().range([0, innerWidth]);

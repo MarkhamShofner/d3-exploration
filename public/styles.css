@@ -1,10 +1,12 @@
+@import url('http://fonts.googleapis.com/css?family=Poiret+One');
+
 body {
   /*background-color: green;*/
-  background-image: url(images/earth_lights_lrg.jpg)
+  background-image: url(images/earth_lights_lrg.jpg);
 }
 
 svg {
-  background-color: white;
+  background-color: green;
   display: block;
   margin: auto;
 }
@@ -13,3 +15,24 @@ svg {
   fill: none;
   stroke-width: 5px;
 }*/
+
+.axis text {
+  font: 16pt sans-serif;
+  font-family: 'Poiret One', cursive;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+p {
+  color: white;
+}
+
+.test {
+  font: 16pt sans-serif;
+  font-family: 'Poiret One', cursive;
+}
