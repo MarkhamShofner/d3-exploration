@@ -115,7 +115,7 @@ var playground = {
       var data2 = [];
       data1 = results[1];
       console.log(data1);
-      // augment the first calls data using data from the second call
+      // augment the first call's data using data from the second call
       $.getJSON(url2, function(data) {
         data2 = data[1];
         dataC = [];
@@ -126,17 +126,9 @@ var playground = {
           if (!isNaN(data1[i].value) && !isNaN(data1[i].value2)) {
             console.log("true values");
             dataC.push(data1[i]);
-            // console.log(typeof data1[i].value);
-            // console.log(dataC);
           }
         }
-        // console.log(dataC.length);
-        // console.log(dataC);
-        console.log("break");
-        // render the full data set
-        // console.log(data1);
-        // console.log(dataC);
-        self.render(dataC);
+        console.log("line break");
       });
     });
 
