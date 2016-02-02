@@ -3,10 +3,12 @@
 body {
   /*background-color: green;*/
   background-image: url(images/earth_lights_lrg.jpg);
+  font: 16pt sans-serif;
+  font-family: 'Poiret One', cursive;
 }
 
 svg {
-  background-color: green;
+  background-color: white;
   display: block;
   margin: auto;
 }
