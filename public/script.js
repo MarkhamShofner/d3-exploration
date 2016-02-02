@@ -4,10 +4,10 @@ var playground = {
     outerWidth: 500, //parseFloat(d3.select('.svgContain').style('width')),
     outerHeight: 500, //parseFloat(d3.select('.svgContain').style('height')),
     margin: {
-      left: 90,
-      right: 30,
-      top: 90,
-      bottom: 30
+      left: 50,
+      right: 40,
+      top: 40,
+      bottom: 50
     },
     circleRadius: 2,
     rMin: 2,
