@@ -111,10 +111,10 @@ var playground = {
   },
   retrieveData: function() {
     var self = this;
-    // var url1 = 'http://localhost:3000/data/' + this.filtered.filter1;
-    // var url2 = 'http://localhost:3000/data/' + this.filtered.filter2;
-    var url1 = 'https://worldbankindicators.herokuapp.com/data/' + this.filtered.filter1;
-    var url2 = 'https://worldbankindicators.herokuapp.com/data/' + this.filtered.filter2;
+    var url1 = 'http://localhost:3000/data/' + this.filtered.filter1;
+    var url2 = 'http://localhost:3000/data/' + this.filtered.filter2;
+    // var url1 = 'https://worldbankindicators.herokuapp.com/data/' + this.filtered.filter1;
+    // var url2 = 'https://worldbankindicators.herokuapp.com/data/' + this.filtered.filter2;
 
     // make calls to retrieve world bank data
     d3.json(url1, function(error, results) {
@@ -167,8 +167,8 @@ var playground = {
     console.log("hovered!!");
     infoBox.style("display", "block");
     infoBox.select(".entity").text(d.country.value);
-    infoBox.select(".indicator1").text("X: " + d.value);//self.filtered.filter1);
-    infoBox.select(".indicator2").text("Y: " + d.value2);//self.filtered.filter2);
+    infoBox.select(".indicator2").text("Y: " + d3.round(d.value2,2));//self.filtered.filter2);
+    infoBox.select(".indicator1").text("X: " + d3.round(d.value,2));//self.filtered.filter1);
   },
   initialize: function() {
     this.setPlayground();
