@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Poiret+One');
 * {
-  color: white;
+  /*color: white;*/
 }
 body {
   /*background-color: green;*/
@@ -60,6 +60,8 @@ svg {
 .infoBox {
   height: auto;
   width: auto;
+  font: 16pt sans-serif;
+  font-family: 'Poiret One', cursive;
   border-radius: 5px;
   background-color: white;
   position: absolute;
