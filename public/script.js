@@ -52,6 +52,13 @@ var playground = {
       .tickFormat(d3.format("s"))
       .outerTickSize(0);
 
+    this.page.xAxisLabel = this.page.svg.append('text').attr('class', 'axisTitle')
+      .attr('transform', 'translate(' + (this.svgAttr.outerWidth / 2) + ',' + (this.svgAttr.outerHeight - 10) + ')')
+      .attr('text-anchor', 'middle');
+    this.page.yAxisLabel = this.page.svg.append('text').attr('class', 'axisTitle')
+      .attr('transform', 'translate(' + (20) + ',' + (this.svgAttr.outerHeight / 2) + ')rotate(-90)')
+      .attr('text-anchor', 'middle');
+
     // assign infoBox html property to object
     this.page.infoBox = d3.select(".infoBox");
   },
@@ -105,6 +112,8 @@ var playground = {
     //   function(d) {
     //     return self.page.scales.colorScale(d[self.filtered.colorColumn]);
     //   });
+    this.page.xAxisLabel.text($("#firstFilter option:selected" ).text());
+    this.page.yAxisLabel.text($("#secondFilter option:selected" ).text());
 
     // Exit
     circles.exit().remove();
@@ -167,8 +176,8 @@ var playground = {
     console.log("hovered!!");
     infoBox.style("display", "block");
     infoBox.select(".entity").text(d.country.value);
-    infoBox.select(".indicator2").text("Y: " + d3.round(d.value2,2));//self.filtered.filter2);
-    infoBox.select(".indicator1").text("X: " + d3.round(d.value,2));//self.filtered.filter1);
+    infoBox.select(".indicator2").text("Y: " + d3.round(d.value2, 2)); //self.filtered.filter2);
+    infoBox.select(".indicator1").text("X: " + d3.round(d.value, 2)); //self.filtered.filter1);
     // infoBox.select(".indicator1").text("X: " + d.value.Format(d3.format("s")));
   },
   initialize: function() {
