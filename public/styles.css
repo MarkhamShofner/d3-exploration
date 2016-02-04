@@ -1,47 +1,53 @@
 @import url('https://fonts.googleapis.com/css?family=Poiret+One');
-
 * {
-  /*color: white;*/
+  color: white;
 }
-
 body {
   /*background-color: green;*/
   background-image: url(images/earth_lights_lrg.jpg);
   font: 16pt sans-serif;
   font-family: 'Poiret One', cursive;
 }
-
 svg {
   background-color: white;
   display: block;
   margin: auto;
 }
-
 .axesOptions {
   display: block;
-  width: 350px;
+  width: 450px;
   margin: 10px auto;
   /*background-color: gray;*/
 }
+.form-control {
+  width: auto;
+  display: inline-block;
+}
+.form-group label {
+    float: left;
+    text-align: left;
+    font-weight: normal;
+}
 
+.form-group select {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+}
 .axis text {
   font: 16pt sans-serif;
   font-family: 'Poiret One', cursive;
 }
-
-.axis path,
-.axis line {
+.axis path, .axis line {
   fill: none;
   stroke: #000;
   shape-rendering: crispEdges;
 }
-
 .axisTitle {
   font: 12pt sans-serif;
   font-family: 'Poiret One', cursive;
   /*font-weight: bold;*/
 }
-
 .dropdown {
   font: 16pt sans-serif;
   font-family: 'Poiret One', cursive;
@@ -51,19 +57,18 @@ svg {
   font: 16pt sans-serif;
   font-family: 'Poiret One', cursive;
 }
-
-.infoBox{
-  height:auto;
-  width:auto;
+.infoBox {
+  height: auto;
+  width: auto;
   border-radius: 5px;
   background-color: white;
-  position:absolute;
+  position: absolute;
   border: 1px solid black;
   display: none;
-  padding:5px;
+  padding: 5px;
   text-align: center;
 }
-.indicator{
+.indicator {
   text-align: left;
   font-size: 0.8em;
 }
