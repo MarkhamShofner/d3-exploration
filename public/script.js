@@ -62,6 +62,7 @@ var playground = {
     // assign infoBox html property to object
     this.page.infoBox = d3.select(".infoBox");
   },
+  // lots of help from Chase Gruber in this portion
   render: function(data1) {
     var self = this;
     // set domains based on input data

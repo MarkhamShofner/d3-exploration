@@ -36,6 +36,12 @@ svg {
   shape-rendering: crispEdges;
 }
 
+.axisTitle {
+  font: 12pt sans-serif;
+  font-family: 'Poiret One', cursive;
+  /*font-weight: bold;*/
+}
+
 .dropdown {
   font: 16pt sans-serif;
   font-family: 'Poiret One', cursive;
