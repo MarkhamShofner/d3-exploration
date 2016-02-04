@@ -169,6 +169,7 @@ var playground = {
     infoBox.select(".entity").text(d.country.value);
     infoBox.select(".indicator2").text("Y: " + d3.round(d.value2,2));//self.filtered.filter2);
     infoBox.select(".indicator1").text("X: " + d3.round(d.value,2));//self.filtered.filter1);
+    // infoBox.select(".indicator1").text("X: " + d.value.Format(d3.format("s")));
   },
   initialize: function() {
     this.setPlayground();
