@@ -10,8 +10,6 @@ var playground = {
       bottom: 50
     },
     circleRadius: 4,
-    // rMin: 2,
-    // rMax: 7,
   },
   filtered: {
     //static choices pre-user selections
@@ -52,6 +50,7 @@ var playground = {
       .tickFormat(d3.format("s"))
       .outerTickSize(0);
 
+    // set axis labels
     this.page.xAxisLabel = this.page.svg.append('text').attr('class', 'axisTitle')
       .attr('transform', 'translate(' + (this.svgAttr.outerWidth / 2) + ',' + (this.svgAttr.outerHeight - 10) + ')')
       .attr('text-anchor', 'middle');
@@ -69,15 +68,9 @@ var playground = {
     self.page.scales.xScale.domain(d3.extent(data1, function(d) {
       return d.value;
     }));
-
     self.page.scales.yScale.domain(d3.extent(data1, function(d) {
       return d.value2;
     }));
-
-    // self.page.scales.rScale.domain(d3.extent(data1, function(d) {
-    //   return d.value;
-    // }));
-    // self.page.scales.colorScale = d3.scale.category20();
 
     // apply x/yAxis functionality to respective x/yAxisG group d3 element
     self.page.xAxisG.call(self.page.xAxis);
@@ -104,15 +97,8 @@ var playground = {
       .on("mouseover", function(d) {
         console.log(d);
         self.entityHover(d);
-        // create viz div based on d
       });
-    // function(d) {
-    //   return self.page.scales.rScale(d.value);
-    // });
-    // .attr("fill",
-    //   function(d) {
-    //     return self.page.scales.colorScale(d[self.filtered.colorColumn]);
-    //   });
+
     this.page.xAxisLabel.text($("#firstFilter option:selected" ).text());
     this.page.yAxisLabel.text($("#secondFilter option:selected" ).text());
 
@@ -131,7 +117,6 @@ var playground = {
       var data1 = [];
       var data2 = [];
       data1 = results[1];
-      console.log(data1);
       // augment the first call's data using data from the second call
       $.getJSON(url2, function(data) {
         data2 = data[1];
