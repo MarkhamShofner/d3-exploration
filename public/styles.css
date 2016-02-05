@@ -28,11 +28,19 @@ svg {
     text-align: left;
     font-weight: normal;
 }
-
 .form-group select {
     display: inline-block;
     width: auto;
     vertical-align: middle;
+}
+.jumbotron {
+  text-align: center;
+}
+.container {
+  background-color: rgba(0, 0, 0, 0.59);
+}
+.row {
+  color: white;
 }
 .axis text {
   font: 16pt sans-serif;
