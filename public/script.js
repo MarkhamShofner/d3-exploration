@@ -1,8 +1,8 @@
 // set up an object that represents the future action in the svg playground
 var playground = {
   svgAttr: {
-    outerWidth: 550, //parseFloat(d3.select('.svgContain').style('width')),
-    outerHeight: 500, //parseFloat(d3.select('.svgContain').style('height')),
+    outerWidth: 650, //parseFloat(d3.select('.svgContain').style('width')),
+    outerHeight: 650, //parseFloat(d3.select('.svgContain').style('height')),
     margin: {
       left: 90,
       right: 90,

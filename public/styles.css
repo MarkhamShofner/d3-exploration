@@ -34,10 +34,14 @@ svg {
     vertical-align: middle;
 }
 .jumbotron {
+  font: 28pt sans-serif;
+  font-family: 'Poiret One', cursive;
   text-align: center;
 }
 .container {
   background-color: rgba(0, 0, 0, 0.59);
+  font: 16pt sans-serif;
+  font-family: 'Poiret One', cursive;
 }
 .row {
   color: white;
