@@ -11,8 +11,8 @@ var playground = {
     },
     circleRadius: 4,
   },
+  //static choices pre-user selections
   filtered: {
-    //static choices pre-user selections
     filter1: "IT.NET.USER.P2",
     filter2: "IT.NET.USER.P2",
   },
