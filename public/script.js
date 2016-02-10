@@ -98,6 +98,7 @@ var playground = {
         self.entityHover(d);
       });
 
+    // adjust axes labels to match filtered options
     this.page.xAxisLabel.text($("#firstFilter option:selected" ).text());
     this.page.yAxisLabel.text($("#secondFilter option:selected" ).text());
 
@@ -136,12 +137,14 @@ var playground = {
     });
 
   },
+  // retrieve dropdown options
   getFirstField: function() {
     return d3.select("#firstFilter").node().value;
   },
   getSecondField: function() {
     return d3.select("#secondFilter").node().value;
   },
+  // set listeners to retriever data (and then render) when a filter changes
   changeListen1: function() {
     var self = this;
     d3.select("#firstFilter").on("change", function() {
@@ -156,16 +159,16 @@ var playground = {
       self.retrieveData();
     });
   },
+  // display related information based on hover
   entityHover: function(d) {
     var self = this;
     var infoBox = playground.page.infoBox;
-    console.log("hovered!!");
     infoBox.style("display", "block");
     infoBox.select(".entity").text(d.country.value);
     infoBox.select(".indicator2").text("Y: " + d3.round(d.value2, 2)); //self.filtered.filter2);
     infoBox.select(".indicator1").text("X: " + d3.round(d.value, 2)); //self.filtered.filter1);
-    // infoBox.select(".indicator1").text("X: " + d.value.Format(d3.format("s")));
   },
+  // initialize the playground and make first call
   initialize: function() {
     this.setPlayground();
     this.retrieveData();
