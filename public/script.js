@@ -39,18 +39,17 @@ var playground = {
     // set scales using size ranges for elements
     this.page.scales.xScale = d3.scale.linear().range([0, innerWidth]);
     this.page.scales.yScale = d3.scale.linear().range([innerHeight, 0]);
-    // this.page.scales.rScale = d3.scale.linear().range([this.svgAttr.rMin, this.svgAttr.rMax]);
 
     // set axes
     this.page.xAxis = d3.svg.axis().scale(this.page.scales.xScale).orient("bottom")
-      .ticks(4) // Use approximately 5 ticks marks.
+      .ticks(4)
       .tickFormat(d3.format("s")) // Use intelligent abbreviations, e.g. 5M for 5 Million
       .outerTickSize(0); // Turn off the marks at the end of the axis.
     this.page.yAxis = d3.svg.axis().scale(this.page.scales.yScale).orient("left")
       .tickFormat(d3.format("s"))
       .outerTickSize(0);
 
-    // set axis labels
+    // set axes labels
     this.page.xAxisLabel = this.page.svg.append('text').attr('class', 'axisTitle')
       .attr('transform', 'translate(' + (this.svgAttr.outerWidth / 2) + ',' + (this.svgAttr.outerHeight - 10) + ')')
       .attr('text-anchor', 'middle');
@@ -61,7 +60,7 @@ var playground = {
     // assign infoBox html property to object
     this.page.infoBox = d3.select(".infoBox");
   },
-  // lots of help from Chase Gruber in this portion
+  // lots of help from chase gruber in this portion
   render: function(data1) {
     var self = this;
     // set domains based on input data
@@ -93,9 +92,9 @@ var playground = {
         })
       .attr("r", this.svgAttr.circleRadius);
 
+    // add listeners for mouseover event to call hover function
     circles
       .on("mouseover", function(d) {
-        console.log(d);
         self.entityHover(d);
       });
 
