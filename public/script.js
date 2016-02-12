@@ -11,11 +11,12 @@ var playground = {
     },
     circleRadius: 4,
   },
-  //static choices pre-user selections
+  // static choices pre-user selections
   filtered: {
     filter1: "IT.NET.USER.P2",
     filter2: "IT.NET.USER.P2",
   },
+  // dummy object to hold page specific data
   page: {
     scales: {},
   },
