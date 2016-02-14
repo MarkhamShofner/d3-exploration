@@ -20,6 +20,7 @@ var playground = {
   page: {
     scales: {},
   },
+  // method to create the playground
   setPlayground: function() {
     var innerWidth = this.svgAttr.outerWidth - this.svgAttr.margin.left - this.svgAttr.margin.right;
     var innerHeight = this.svgAttr.outerHeight - this.svgAttr.margin.top - this.svgAttr.margin.bottom;
