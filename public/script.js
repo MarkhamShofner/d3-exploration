@@ -129,10 +129,12 @@ var playground = {
           data1[i].value = parseFloat(data1[i].value);
           data1[i].value2 = parseFloat(data1[i].value2);
           if (!isNaN(data1[i].value) && !isNaN(data1[i].value2)) {
+            // log to see how many values match both filters
             console.log("true values");
             dataC.push(data1[i]);
           }
         }
+        // break log to consolidate true value logs in proper groups
         console.log("break");
         self.render(dataC);
       });
