@@ -101,8 +101,8 @@ var playground = {
       });
 
     // adjust axes labels to match filtered options
-    this.page.xAxisLabel.text($("#firstFilter option:selected" ).text());
-    this.page.yAxisLabel.text($("#secondFilter option:selected" ).text());
+    this.page.xAxisLabel.text($("#firstFilter option:selected").text());
+    this.page.yAxisLabel.text($("#secondFilter option:selected").text());
 
     // Exit
     circles.exit().remove();
@@ -139,7 +139,6 @@ var playground = {
         self.render(dataC);
       });
     });
-
   },
   // retrieve dropdown options
   getFirstField: function() {
